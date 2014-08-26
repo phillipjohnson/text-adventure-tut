@@ -2,7 +2,7 @@
 __author__ = 'Phillip Johnson'
 
 from adventuretutorial import items, enemies, actions
-from adventuretutorial.game import World
+import world
 
 
 class MapTile:
@@ -27,13 +27,13 @@ class MapTile:
     def adjacent_moves(self, player):
         """Returns all move actions for adjacent tiles."""
         moves = []
-        if World.instance().tile_exists(self.x + 1, self.y):
+        if world.tile_exists(self.x + 1, self.y):
             moves.append(actions.MoveEast(player))
-        if World.instance().tile_exists(self.x - 1, self.y):
+        if world.tile_exists(self.x - 1, self.y):
             moves.append(actions.MoveWest(player))
-        if World.instance().tile_exists(self.x, self.y - 1):
+        if world.tile_exists(self.x, self.y - 1):
             moves.append(actions.MoveNorth(player))
-        if World.instance().tile_exists(self.x, self.y + 1):
+        if world.tile_exists(self.x, self.y + 1):
             moves.append(actions.MoveSouth(player))
         return moves
 

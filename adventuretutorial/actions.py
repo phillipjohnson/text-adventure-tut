@@ -4,7 +4,7 @@ __author__ = 'Phillip Johnson'
 import random
 
 from adventuretutorial import items
-from adventuretutorial.game import World
+import world
 
 
 class Action():
@@ -46,7 +46,7 @@ class MoveAction(Action):
         """Changes the position of the player and displays the information from the new tile"""
         self.player.location_x += self.dx
         self.player.location_y += self.dy
-        print(World.instance().tile_exists(self.player.location_x, self.player.location_y).intro_text())
+        print(world.tile_exists(self.player.location_x, self.player.location_y).intro_text())
 
 
 class MoveNorth(MoveAction):
