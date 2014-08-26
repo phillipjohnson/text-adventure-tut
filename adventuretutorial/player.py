@@ -17,7 +17,4 @@ class Player():
         for item in self.inventory:
             print(item, '\n')
 
-    def do_action(self, action):
-        action.do(player=self)
-
 

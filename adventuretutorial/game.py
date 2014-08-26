@@ -52,13 +52,13 @@ def game_loop():
         # Check again since the room could have changed the player's state
         if player.is_alive() and not player.victory:
             print("Choose an action:\n")
-            available_actions = room.available_actions()
+            available_actions = room.available_actions(player)
             for a in available_actions:
                 print(a)
             action_input = input('Action: ')
             for a in available_actions:
                 if action_input == a.hotkey:
-                    player.do_action(a)
+                    a.execute()
 
 
 if __name__ == "__main__":

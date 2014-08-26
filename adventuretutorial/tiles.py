@@ -24,27 +24,23 @@ class MapTile:
         """Process actions that change the state of the player."""
         raise NotImplementedError()
 
-    def enter_tile(self, player):
-        print(self.intro_text())
-        self.modify_player(player)
-
-    def adjacent_moves(self):
+    def adjacent_moves(self, player):
         """Returns all move actions for adjacent tiles."""
         moves = []
         if World.instance().tile_exists(self.x + 1, self.y):
-            moves.append(actions.MoveEast())
+            moves.append(actions.MoveEast(player))
         if World.instance().tile_exists(self.x - 1, self.y):
-            moves.append(actions.MoveWest())
+            moves.append(actions.MoveWest(player))
         if World.instance().tile_exists(self.x, self.y - 1):
-            moves.append(actions.MoveNorth())
+            moves.append(actions.MoveNorth(player))
         if World.instance().tile_exists(self.x, self.y + 1):
-            moves.append(actions.MoveSouth())
+            moves.append(actions.MoveSouth(player))
         return moves
 
-    def available_actions(self):
+    def available_actions(self, player):
         """Returns all of the available actions in this room."""
-        moves = self.adjacent_moves()
-        moves.append(actions.ViewInventory())
+        moves = self.adjacent_moves(player)
+        moves.append(actions.ViewInventory(player))
 
         return moves
 
@@ -116,11 +112,11 @@ class EnemyRoom(MapTile):
             player.hp = player.hp - self.enemy.damage
             print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, player.hp))
 
-    def available_actions(self):
+    def available_actions(self, player):
         if self.enemy.is_alive():
-            return [actions.Flee(self), actions.Attack(self.enemy)]
+            return [actions.Flee(tile=self, player=player), actions.Attack(enemy=self.enemy, player=player)]
         else:
-            return self.adjacent_moves()
+            return self.adjacent_moves(player)
 
 
 class GiantSpiderRoom(EnemyRoom):
@@ -128,9 +124,14 @@ class GiantSpiderRoom(EnemyRoom):
         super().__init__(x, y, enemies.GiantSpider())
 
     def intro_text(self):
-        return """
-        A giant spider jumps down from its web in front of you!
-        """
+        if self.enemy.is_alive():
+            return """
+            A giant spider jumps down from its web in front of you!
+            """
+        else:
+            return """
+            The corpse of a dead spider rots on the ground.
+            """
 
 
 class OgreRoom(EnemyRoom):
@@ -138,9 +139,14 @@ class OgreRoom(EnemyRoom):
         super().__init__(x, y, enemies.Ogre())
 
     def intro_text(self):
-        return """
-        An ogre is blocking your path!
-        """
+        if self.enemy.is_alive():
+            return """
+            An ogre is blocking your path!
+            """
+        else:
+            return """
+            A dead ogre reminds you of your triumph.
+            """
 
 
 class SnakePitRoom(MapTile):
