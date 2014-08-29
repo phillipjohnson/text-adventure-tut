@@ -29,13 +29,10 @@ class MapTile:
         if world.tile_exists(self.x + 1, self.y):
             moves.append(actions.MoveEast())
         if world.tile_exists(self.x - 1, self.y):
-            pass
             moves.append(actions.MoveWest())
         if world.tile_exists(self.x, self.y - 1):
-            pass
             moves.append(actions.MoveNorth())
         if world.tile_exists(self.x, self.y + 1):
-            pass
             moves.append(actions.MoveSouth())
         return moves
 

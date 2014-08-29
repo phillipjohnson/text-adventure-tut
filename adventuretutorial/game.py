@@ -6,7 +6,7 @@ from adventuretutorial import world
 from adventuretutorial.player import Player
 
 
-def game_loop():
+def play():
     world.load_tiles()
     player = Player()
     while player.is_alive() and not player.victory:
@@ -26,4 +26,4 @@ def game_loop():
 
 
 if __name__ == "__main__":
-    game_loop()
+    play()

@@ -9,7 +9,6 @@ class Player:
     hp = 100
     location_x, location_y = (2, 4)
     victory = False
-    available_actions = []
 
     def is_alive(self):
         return self.hp > 0
