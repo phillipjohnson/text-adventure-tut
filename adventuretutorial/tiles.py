@@ -86,7 +86,7 @@ class FindDaggerRoom(LootRoom):
 
     def intro_text(self):
         return """
-        Your notice something shiny in the corner.
+        You notice something shiny in the corner.
         It's a dagger! You pick it up.
         """
 
