@@ -2,8 +2,8 @@
 A simple text adventure designed as a learning experience for new programmers.
 """
 __author__ = 'Phillip Johnson'
-from adventuretutorial import world
-from adventuretutorial.player import Player
+import world
+from player import Player
 
 
 def play():

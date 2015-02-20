@@ -1,7 +1,7 @@
 """Describes the tiles in the world space."""
 __author__ = 'Phillip Johnson'
 
-from adventuretutorial import items, enemies, actions, world
+import items, enemies, actions, world
 
 
 class MapTile:

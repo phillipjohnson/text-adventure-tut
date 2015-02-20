@@ -1,5 +1,5 @@
 import random
-from adventuretutorial import items, world
+import items, world
 
 __author__ = 'Phillip Johnson'
 

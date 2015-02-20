@@ -1,7 +1,7 @@
 """Describes the actions a player can make in the game"""
 __author__ = 'Phillip Johnson'
 
-from adventuretutorial.player import Player
+from player import Player
 
 
 class Action():
