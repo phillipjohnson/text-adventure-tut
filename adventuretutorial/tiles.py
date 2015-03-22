@@ -47,7 +47,7 @@ class MapTile:
 class StartingRoom(MapTile):
     def intro_text(self):
         return """
-        You find yourself if a cave with a flickering torch on the wall.
+        You find yourself in a cave with a flickering torch on the wall.
         You can make out four paths, each equally as dark and foreboding.
         """
 
