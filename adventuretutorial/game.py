@@ -9,6 +9,8 @@ from player import Player
 def play():
     world.load_tiles()
     player = Player()
+    room = world.tile_exists(player.location_x, player.location_y)
+    print(room.intro_text())
     while player.is_alive() and not player.victory:
         room = world.tile_exists(player.location_x, player.location_y)
         room.modify_player(player)
