@@ -7,7 +7,7 @@ __author__ = 'Phillip Johnson'
 class Player:
     inventory = [items.Gold(15), items.Rock()]
     hp = 100
-    location_x, location_y = (2, 4)
+    location_x, location_y = world.pos
     victory = False
 
     def is_alive(self):
