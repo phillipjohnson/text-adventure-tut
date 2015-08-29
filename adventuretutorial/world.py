@@ -1,7 +1,7 @@
 __author__ = 'Phillip Johnson'
 
 _world = {}
-
+starting_position = (0, 0)
 
 def tile_exists(x, y):
         """Returns the tile at the given coordinates or None if there is no tile.
@@ -22,5 +22,9 @@ def load_tiles():
         cols = rows[y].split('\t')
         for x in range(x_max):
             tile_name = cols[x].replace('\n', '')
+            if tile_name == 'StartingRoom':
+                global starting_position
+                starting_position = (x, y)
             _world[(x, y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x, y)
+
 
