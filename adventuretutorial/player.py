@@ -4,11 +4,12 @@ import items, world
 __author__ = 'Phillip Johnson'
 
 
-class Player:
-    inventory = [items.Gold(15), items.Rock()]
-    hp = 100
-    location_x, location_y = world.starting_position
-    victory = False
+class Player():
+    def __init__(self):
+        self.inventory = [items.Gold(15), items.Rock()]
+        self.hp = 100
+        self.location_x, self.location_y = world.starting_position
+        self.victory = False
 
     def is_alive(self):
         return self.hp > 0
