@@ -1,3 +1,4 @@
+[![Run on Repl.it](https://repl.it/badge/github/phillipjohnson/text-adventure-tut)](https://repl.it/github/phillipjohnson/text-adventure-tut)
 Overview
 -------
 This project was developed as a response to the large number of beginning Python developer who want to learn how to write a text adventure.
