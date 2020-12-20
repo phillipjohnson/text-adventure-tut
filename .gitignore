@@ -1,3 +1,6 @@
+# Ignore save files
+*.p
+
 # Created by http://www.gitignore.io
 
 ### Python ###
@@ -55,6 +58,5 @@ docs/_build/
 # PyBuilder
 target/
 
-# Gedit backup suffix 
+# Gedit backup suffix
 *~
-
